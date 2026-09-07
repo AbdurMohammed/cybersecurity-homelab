@@ -1,6 +1,16 @@
 # cybersecurity-homelab
 Documentation, projects, and investigations from my personal cybersecurity home lab.
 
+
+## Latest Status Update
+
+Ubuntu Server: Operational
+Kali Linux: Operational
+VM-to-VM networking: Verified
+
+
+
+
 ## Lab Equipment
 
 - Main desktop — primary virtualization workstation
@@ -39,3 +49,4 @@ Practiced basic Linux administration through SSH.
 - Inspected listening TCP/UDP sockets
 - Observed an active SSH TCP connection
 - Examined VMware networking from the Windows host
+
