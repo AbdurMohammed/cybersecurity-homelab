@@ -10,7 +10,6 @@ VM-to-VM networking: Verified
 
 
 
-
 ## Lab Equipment
 
 - Main desktop — primary virtualization workstation
