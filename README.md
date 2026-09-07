@@ -28,3 +28,14 @@ Practiced basic Linux administration through SSH.
 `pwd`, `ls`, `cd`, `whoami`, `id`, `hostname`, `uname`,
 `mkdir`, `touch`, `cat`, `chmod`, `ps`, `systemctl`,
 `journalctl`, `last`
+
+## Networking Fundamentals
+
+- Ubuntu uses ens33 as its virtual network interface
+- VMware assigned the VM a private IPv4 address using DHCP
+- VM uses a /24 subnet
+- Identified the VM's default gateway
+- Tested gateway, Internet, and DNS connectivity separately
+- Inspected listening TCP/UDP sockets
+- Observed an active SSH TCP connection
+- Examined VMware networking from the Windows host
