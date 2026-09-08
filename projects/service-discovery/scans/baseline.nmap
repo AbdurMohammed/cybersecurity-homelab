@@ -1,0 +1,11 @@
+# Nmap 7.99 scan initiated Tue Sep  8 02:03:40 2026 as: /usr/lib/nmap/nmap --privileged -sV -oA ./baseline 192.168.200.129
+Nmap scan report for 192.168.200.129
+Host is up (0.00060s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 10.2p1 Ubuntu 2ubuntu3.6 (Ubuntu Linux; protocol 2.0)
+MAC Address: 00:0C:29:6B:6E:8E (VMware)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Tue Sep  8 02:03:41 2026 -- 1 IP address (1 host up) scanned in 0.96 seconds

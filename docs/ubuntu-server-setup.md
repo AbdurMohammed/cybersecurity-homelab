@@ -6,5 +6,3 @@
 - Installed and verified OpenSSH
 - Established SSH connection from Windows host
 - Updated system packages
-
-**Next:** Linux administration and networking fundamentals

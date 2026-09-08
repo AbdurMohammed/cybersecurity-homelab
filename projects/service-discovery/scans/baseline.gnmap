@@ -1,0 +1,4 @@
+# Nmap 7.99 scan initiated Tue Sep  8 02:03:40 2026 as: /usr/lib/nmap/nmap --privileged -sV -oA ./baseline 192.168.200.129
+Host: 192.168.200.129 ()	Status: Up
+Host: 192.168.200.129 ()	Ports: 22/open/tcp//ssh//OpenSSH 10.2p1 Ubuntu 2ubuntu3.6 (Ubuntu Linux; protocol 2.0)/	Ignored State: closed (999)
+# Nmap done at Tue Sep  8 02:03:41 2026 -- 1 IP address (1 host up) scanned in 0.96 seconds
