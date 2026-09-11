@@ -10,7 +10,8 @@ VM-to-VM networking: Verified
 
 ## Lab Equipment
 
-- Main desktop — primary virtualization workstation
-- Spare desktop — dedicated lab system
+- Main desktop — Primary virtualization workstation
+- Spare desktop — Dedicated lab system
 - Raspberry Pi 400 — Linux and networking experimentation
-- Laptop — portable workstation and administration
+- Laptop — Portable workstation and administration
+
