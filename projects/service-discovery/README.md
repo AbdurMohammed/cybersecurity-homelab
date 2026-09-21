@@ -37,3 +37,27 @@ Next, I compared the interactions between Nmap and port 22 with a normal SSH log
 I then used SSH to log into Ubuntu from Kali, establishing an authenticated session between the two systems. When I examined the logs afterward, the login had been recorded, including the accepted authentication and the beginning of the SSH session.
 
 From this investigation, I learned that the services and sockets visible locally on a machine do not necessarily represent what another machine can discover remotely. I also observed that service discovery interacts with a system differently from an authenticated connection. This resulted in different logging behavior, which is an important distinction when investigating network activity.
+
+
+## Observing Attack Surface Changes
+
+### Baseline
+
+First I established a baseline scan of the Ubuntu environment before making any additional changes. The only remotely exposed TCP port was 22, or ssh.
+
+### System Change
+
+I then introduced a new variable into the Ubuntu environment, installing and deploying an Nginx server. I used systemctl to verify its status locally, and then curled it from Kali to observe the webpage externally.
+
+### Rescan/Log Analysis
+
+| Port | Baseline | After Change | Service |
+|------|----------|--------------|---------|
+| 22/tcp | Open | Open | SSH |
+| 80/tcp | Not detected | Open | HTTP |
+
+I then performed another scan from Kali using nmap, and observed a new exposed tcp port on 80 (the nginx server). Going back to Ubuntu, I was able to read the access.log again to see the nmap and curl activity on the new port.
+
+### Conclusions
+
+By establishing a control and then observing the changes after deploying Nginx, I was able to see the change in network exposure. Deploying the web server caused Nginx to listen for incoming connections on TCP port 80, allowing reachable machines to send HTTP requests to the service. This is necessary when hosting a webpage so that other systems can access it. However, this also drastically increased our exposed attack surface, opening up another possible attack vector in our security enclosure in the Ubuntu environment. Using tools is necessary in everyday work, however understanding their impact on the overall security diagram of our network is just as important to make sure we aren't overexposing ourselves or leaving something unsecured.
