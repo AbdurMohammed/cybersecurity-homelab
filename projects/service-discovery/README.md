@@ -111,3 +111,29 @@ tcp/80 - open - http - nginx - 1.28.3
 ```
 
 Compared with the baseline scan, which only exposed SSH on TCP port 22, the parser makes the newly exposed HTTP service on TCP port 80 immediately visible. This provides a much more concise view of the important service information contained within the original Nmap XML output.
+
+
+
+## HTTP Misconfiguration Assessment
+
+### Objective
+
+After identifying the services exposed by the Ubuntu server, I wanted to go beyond basic service discovery and begin assessing the HTTP service in more detail. I used Nmap's Scripting Engine (NSE) along with manual testing to examine the Nginx server for potential configuration issues.
+
+### Enumeration
+
+I first experimented with several HTTP-focused NSE scripts. `http-auth` did not identify an authentication scheme, while `http-methods` showed that the server supported only the GET and HEAD methods.
+
+I then created an `/internal/` directory containing harmless test files on the Nginx server. With directory listing disabled, requesting `/internal/` returned a `403 Forbidden` response. However, files within the directory could still be accessed if their exact paths were known.
+
+### Misconfiguration and Detection
+
+I deliberately enabled Nginx's `autoindex` feature for `/internal/`. This caused Nginx to automatically generate a directory listing, exposing the names of the files stored inside.
+
+From Kali, I used Nmap's `http-enum` NSE script to enumerate the web server. The script successfully discovered `/internal/` and identified it as a potentially interesting directory with directory listing enabled. I then manually verified the finding with `curl` and confirmed that the exposed files could be accessed.
+
+### Remediation and Verification
+
+I disabled `autoindex`, tested the Nginx configuration, and reloaded the service. The `/internal/` directory once again returned `403 Forbidden`, and a second `http-enum` scan no longer reported the directory-listing finding.
+
+The individual files were still accessible if their exact paths were known. This demonstrated an important distinction: disabling directory listing reduces information exposure and makes files more difficult to discover, but it does not provide access control or make those files private.
