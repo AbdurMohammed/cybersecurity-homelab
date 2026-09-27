@@ -1,0 +1,6 @@
+<rule id="100002" level="8" frequency="6" timeframe="30">
+    <if_matched_sid>5710</if_matched_sid>
+    <same_source_ip />
+    <description>Repeated SSH login attempts against nonexistent users</description>
+    <group>authentication_failed,sshd,</group>
+</rule>
