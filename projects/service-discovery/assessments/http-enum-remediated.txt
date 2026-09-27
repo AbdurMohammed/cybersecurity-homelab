@@ -1,0 +1,9 @@
+# Nmap 7.99 scan initiated Fri Sep 25 17:53:58 2026 as: /usr/lib/nmap/nmap --privileged -p 80 --script http-enum -oN assessments/http-enum-remediated.txt 192.168.200.133
+Nmap scan report for 192.168.200.133
+Host is up (0.00034s latency).
+
+PORT   STATE SERVICE
+80/tcp open  http
+MAC Address: 00:0C:29:6B:6E:8E (VMware)
+
+# Nmap done at Fri Sep 25 17:54:01 2026 -- 1 IP address (1 host up) scanned in 3.44 seconds
